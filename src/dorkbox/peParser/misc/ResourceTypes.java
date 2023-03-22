@@ -43,6 +43,7 @@ public enum ResourceTypes {
     ANIM_ICON("Animated Icon"),
     HTML("HTML"),
     MANIFEST("Manifest"),
+    UNKNOWN("UNKNOWN"),
     ;
 
     private final String detailedInfo;
@@ -64,6 +65,6 @@ public enum ResourceTypes {
             }
         }
 
-        return null;
+        return UNKNOWN;
     }
 }

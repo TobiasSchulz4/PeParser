@@ -32,6 +32,9 @@ public class DWORD extends ByteDefinition<UInteger> {
     public final UInteger get() {
         return this.value;
     }
+    public final Long getLong() {
+        return this.value.longValue();
+    }
 
     @Override
     public void format(StringBuilder b) {

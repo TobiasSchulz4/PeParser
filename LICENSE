@@ -1,7 +1,7 @@
  - PeParser - 
    [The Apache Software License, Version 2.0]
    https://git.dorkbox.com/dorkbox/PeParser
-   Copyright 2021
+   Copyright 2023
      Dorkbox LLC
    Windows PE (Portable Executable) file parser for Java 8+
 

@@ -29,9 +29,9 @@ plugins {
     id("com.dorkbox.Licensing") version "2.5.5"
     id("com.dorkbox.VersionUpdate") version "2.3"
     id("com.dorkbox.GradleUtils") version "1.17"
-    id("com.dorkbox.GradlePublish") version "1.10"
+    //id("com.dorkbox.GradlePublish") version "1.10"
 
-    kotlin("jvm") version "1.4.32"
+    kotlin("jvm") version "1.8.0"
 }
 
 object Extras {
@@ -56,7 +56,7 @@ object Extras {
 GradleUtils.load("$projectDir/../../gradle.properties", Extras)
 GradleUtils.fixIntellijPaths()
 GradleUtils.defaultResolutionStrategy()
-GradleUtils.compileConfiguration(JavaVersion.VERSION_1_8)
+//GradleUtils.compileConfiguration(JavaVersion.VERSION_1_8)
 
 licensing {
     license(License.APACHE_2) {
@@ -106,7 +106,7 @@ dependencies {
     implementation("com.dorkbox:Utilities:1.9")
 }
 
-publishToSonatype {
+/*publishToSonatype {
     groupId = Extras.group
     artifactId = Extras.id
     version = Extras.version
@@ -128,4 +128,4 @@ publishToSonatype {
         name = Extras.vendor
         email = "email@dorkbox.com"
     }
-}
+}*/
