@@ -63,7 +63,7 @@ public class PE {
     // TODO: should use an input stream to load header info, instead of the entire thing!
     public ByteArray fileBytes = null;
 
-    private COFFFileHeader coffHeader;
+    public COFFFileHeader coffHeader;
     public OptionalHeader optionalHeader;
     private SectionTable sectionTable;
     private boolean invalidFile;
