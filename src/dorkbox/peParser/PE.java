@@ -141,20 +141,24 @@ public class PE {
             for (ImageDataDir entry : this.optionalHeader.tables) {
                 if (entry.getType() == DirEntry.RESOURCE) {
                     // fixup resources
-                    SectionTableEntry section = entry.getSection();
-                    if (section != null) {
-                        long delta = section.VIRTUAL_ADDRESS.get().longValue() - section.POINTER_TO_RAW_DATA.get().longValue();
-                        long offsetInFile = entry.get().longValue() - delta;
+                    try {
+                        SectionTableEntry section = entry.getSection();
+                        if (section != null) {
+                            long delta = section.VIRTUAL_ADDRESS.get().longValue() - section.POINTER_TO_RAW_DATA.get().longValue();
+                            long offsetInFile = entry.get().longValue() - delta;
 
-                        if (offsetInFile > Integer.MAX_VALUE) {
-                            throw new RuntimeException("Unable to set offset to more than 2gb!");
+                            if (offsetInFile > Integer.MAX_VALUE) {
+                                throw new RuntimeException("Unable to set offset to more than 2gb!");
+                            }
+
+                            this.fileBytes.seek((int) offsetInFile);
+                            this.fileBytes.mark(); // resource data is offset from the beginning of the header!
+
+                            Header root = new ResourceDirectoryHeader(this.fileBytes, section, 0);
+                            entry.data = root;
                         }
-
-                        this.fileBytes.seek((int) offsetInFile);
-                        this.fileBytes.mark(); // resource data is offset from the beginning of the header!
-
-                        Header root = new ResourceDirectoryHeader(this.fileBytes, section, 0);
-                        entry.data = root;
+                    } catch (Exception e) {
+                        System.err.println("Unable to parse resource directory: " + e.getMessage());
                     }
                 }
             }
