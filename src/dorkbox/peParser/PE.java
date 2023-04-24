@@ -139,7 +139,7 @@ public class PE {
 
             // fixup directories
             for (ImageDataDir entry : this.optionalHeader.tables) {
-                if (entry.getType() == DirEntry.RESOURCE) {
+                /*if (entry.getType() == DirEntry.RESOURCE) {
                     // fixup resources
                     try {
                         SectionTableEntry section = entry.getSection();
@@ -160,7 +160,7 @@ public class PE {
                     } catch (Exception e) {
                         System.err.println("Unable to parse resource directory: " + e.getMessage());
                     }
-                }
+                }*/
             }
         }
     }
