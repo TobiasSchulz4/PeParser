@@ -1,0 +1,6 @@
+changes in PeParser:
+- COFFFileHeader in dorkbox/peParser/PE.java public gemacht
+- Fallback Wert für ResourceTypes in dorkbox/peParser/misc/ResourceTypes.java hinzugefügt
+- Long getLong() in dorkbox/peParser/types/DWORD.java hinzugefügt, da es ein Problem mit der Verfügbarkeit von der UInteger gibt
+- Abfrage der Resource in try catch block gesetzt, da es sonst zu einem Fehler kommt, wenn die Resourcen nicht vorhanden sind,
+ diese aber nicht benötigt werden
