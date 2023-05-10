@@ -65,7 +65,7 @@ public class PE {
 
     public COFFFileHeader coffHeader;
     public OptionalHeader optionalHeader;
-    private SectionTable sectionTable;
+    public SectionTable sectionTable;
     private boolean invalidFile;
 
 
